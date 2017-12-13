@@ -23,7 +23,7 @@ void rk2_standalone(Point2D *table, unsigned n, double h, double a) {
      * Fill in the table.
      */
     for (unsigned i = 1; i < n; i++) {
-        Point2D *previous = &(table[i-1]);
+        Point2D *previous = &(table[i - 1]);
         double k1 = f(previous);
         Point2D point = {
             .x = previous->x + h / (2 * a),
@@ -93,8 +93,8 @@ void rk2_system(Point3D *table, unsigned n, double h) {
         double k2 = f1(&point);
         double m2 = f2(&point);
 
-        table[i].u = table[i - 1].u + h * (m1 + k2) / 2;
-        table[i].v = table[i - 1].v + h * (k1 + m2) / 2;
+        table[i].u = table[i - 1].u + h * (k1 + k2) / 2;
+        table[i].v = table[i - 1].v + h * (m1 + m2) / 2;
     }
 }
 

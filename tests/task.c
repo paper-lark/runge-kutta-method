@@ -10,11 +10,11 @@ const Point2D initial_conditions2D = {
 };
 
 double f(const Point2D *point) {
-    return sin(point->x) - point->y;
+    return -(point->x * point->x) - point->y;
 }
 
 double solution(double x) {
-    return -0.5 * cos(x) + 0.5 * sin(x) + 21 * exp(-x) / 2;
+    return -x * x + 2 * x - 2 + 12 * exp(-x);
 }
 
 /**
@@ -22,13 +22,13 @@ double solution(double x) {
  */
 const Point3D initial_conditions3D = {
     .x = 0,
-    .u = 3,
-    .v = 0
+    .u = 1,
+    .v = 1
 };
 double f1(const Point3D *point) {
-    return 3 * point->u + 4 * point->v;
+    return -2 * point->x * point->u * point->u + point->v * point->v - point->x - 1;
 }
 
 double f2(const Point3D *point) {
-    return 2 * point->u + point->v;
+    return 1 / (point->v * point->v) - point->u - point->x / point->u;
 }

@@ -20,13 +20,10 @@ extern double solution(double x);
  * Function prints formatted function table for standalone equation. 
  */
 void print2D(const Point2D *table, unsigned n) {
-    printf("x | ");
+    printf("       x       |       y       \n");
+    printf("-------------------------------\n");
     for (unsigned i = 0; i < n; i++) {
-        printf("%.10g | ", table[i].x);
-    }
-    printf("\ny | ");
-    for (unsigned i = 0; i < n; i++) {
-        printf("%.10g | ", table[i].y);
+        printf("%14.8g | %14.8g\n", table[i].x, table[i].y);
     }
     printf("\n");
 }
@@ -35,17 +32,10 @@ void print2D(const Point2D *table, unsigned n) {
  * Function prints formatted function table for system of equations. 
  */
 void print3D(const Point3D *table, unsigned n) {
-    printf("x | ");
+    printf("       x       |       u        |       v       \n");
+    printf("------------------------------------------------\n");
     for (unsigned i = 0; i < n; i++) {
-        printf("%.10g | ", table[i].x);
-    }
-    printf("\nu | ");
-    for (unsigned i = 0; i < n; i++) {
-        printf("%.10g | ", table[i].u);
-    }
-    printf("\nv | ");
-    for (unsigned i = 0; i < n; i++) {
-        printf("%.10g | ", table[i].v);
+        printf("%14.8g | %14.8g | %14.8g\n", table[i].x, table[i].u, table[i].v);
     }
     printf("\n");
 }
