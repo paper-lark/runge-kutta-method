@@ -52,7 +52,6 @@ int main(void) {
     Method method;
     double h;
     double limit;
-    double a;
     
     char *buffer = malloc(BUFF_LEN);
     printf("Enter task: (\"standalone\" for a standalone equation, and \"system\" for a system of equations)\n");
@@ -101,16 +100,6 @@ int main(void) {
      * Start solving according the specified method and task options.
      */
     if (task == Standalone) {
-
-        /**
-         * Read parameter value.
-         */
-        printf("Enter parameter value:\n");
-        scanf("%lf", &a);
-        if (a <= 0 || a > 1) {
-            fprintf(stderr, "> error: paraneter should be in range (0, 1]\n");
-            exit(1);
-        }
         /**
          * Prepare the table.
          */
@@ -130,6 +119,16 @@ int main(void) {
          * Calculate approximation and print it.
          */
         if (method == Second) {
+            /**
+             * Read parameter value.
+             */
+            double a;
+            printf("Enter parameter value:\n");
+            scanf("%lf", &a);
+            if (a <= 0 || a > 1) {
+                fprintf(stderr, "> error: paraneter should be in range (0, 1]\n");
+                exit(1);
+            }
             rk2_standalone(table, n, h, a);
         } else if (method == Fourth) {
             rk4_standalone(table, n, h);
